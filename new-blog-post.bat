@@ -13,3 +13,5 @@ start "Pixel Planet Today Blog" "https://blog.pixelplanettoday.com"
 echo opening Pixel Planet Today Blog
 
 echo closing batch
+
+timeout /t 3 /nobreak

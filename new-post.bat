@@ -16,8 +16,9 @@ echo opening Facebook
 start "We Don't Have Time" "https://app.wedonthavetime.org/"
 echo opening We Don't Have Time
 start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
-echo opening Google Drive > Carbonii
+echo opening Google Drive (Carbonii)
 
+timeout /t 3 /nobreak
 
 @REM Terrabyte Pages
 start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --profile-directory="Profile 3"
@@ -29,3 +30,5 @@ start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
 
 echo closing batch
+
+timeout /t 3 /nobreak
