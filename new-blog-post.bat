@@ -1,6 +1,6 @@
 @ECHO OFF
 
-@REM Profile 1 is Pixel; Profile 2 is GHM; Profile 3 is Terrabyte
+@REM Profile 1 is Pixel; Profile 3 is Terrabyte
 @REM ____________________________________________________________
 
 @REM Pixel Planet Today Pages
