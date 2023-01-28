@@ -18,8 +18,14 @@ echo opening We Don't Have Time
 start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
 echo opening Google Drive (Carbonii)
 
-timeout /t 3 /nobreak
+@REM timeout /t 3 /nobreak
 
+choice /c yn /n /m "Share on Terrabyte pages as well? (y/n)"
+set INPUT=%ERRORLEVEL%
+if %INPUT% EQU 1 goto yes
+if %INPUT% EQU 2 goto no
+
+:yes
 @REM Terrabyte Pages
 start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --profile-directory="Profile 3"
 echo starting Edge in Profile 3 (Terrabyte)...
@@ -29,6 +35,6 @@ echo opening Twitter
 start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
 
+:no
 echo closing batch
-
 timeout /t 3 /nobreak
