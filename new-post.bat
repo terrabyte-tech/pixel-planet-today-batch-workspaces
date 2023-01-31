@@ -18,14 +18,32 @@ echo opening We Don't Have Time
 start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
 echo opening Google Drive (Carbonii)
 
-@REM timeout /t 3 /nobreak
 
+choice /c yn /n /m "Open File Explorer? (y/n)"
+set INPUT1=%ERRORLEVEL%
+if %INPUT1% EQU 1 goto yesExplorer
+if %INPUT1% EQU 2 goto noExplorer
+
+:yesExplorer
+if not exist "%~dp0%file-paths\ppt-days.txt" goto noFolder
+
+set /p pptfilepath=<%~dp0%file-paths\ppt-days.txt
+
+echo opening in File Explorer...
+%SystemRoot%\explorer.exe %pptfilepath%
+goto noExplorer
+
+:noFolder
+echo unable to open File Explorer; folder not found
+
+:noExplorer
 choice /c yn /n /m "Share on Terrabyte pages as well? (y/n)"
 set INPUT=%ERRORLEVEL%
-if %INPUT% EQU 1 goto yes
-if %INPUT% EQU 2 goto no
+if %INPUT% EQU 1 goto yesTB
+if %INPUT% EQU 2 goto noTB
 
-:yes
+
+:yesTB
 @REM Terrabyte Pages
 start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --profile-directory="Profile 3"
 echo starting Edge in Profile 3 (Terrabyte)...
@@ -35,6 +53,6 @@ echo opening Twitter
 start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
 
-:no
+:noTB
 echo closing batch
 timeout /t 3 /nobreak
