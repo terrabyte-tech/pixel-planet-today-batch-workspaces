@@ -1,20 +1,49 @@
 @ECHO OFF
+chcp 65001
 
 @REM Profile 1 is Pixel; Profile 3 is Terrabyte
 @REM ____________________________________________________________
 
-:mainMenu
 cls
-echo ==========
-echo Choose from the following actions.
-echo ==========
-echo.
-echo 1: Open Pixel Planet Today pages
-echo 2: Open Terrabyte pages
-echo 3: Open File Explorer
-echo 4: EXIT
+:ascii
+@REM █ ▄ ▀
 
-set /p menuInput=Enter a number from above, then press ENTER:
+echo.
+echo. █▀▀▀▀▀▀▀██ █▀▀▀█ █▀▀▀███▀▀▀█ █▀▀▀▀▀▀█ █▀▀▀█      █▀▀▀▀▀▀▀██ █▀▀▀█    ██▀▀▀▀▀▀██ ██▀▀▀▀▀▀██ █▀▀▀▀▀▀█ █▀▀▀▀▀▀▀▀▀█
+echo. ▄        ▄ ▄   ▄  ▄   ▄   ▄  ▄      ▄ ▄   ▄      ▄        ▄ ▄   ▄    ▄        ▄ ▄        ▄ ▄      ▄ ▄         ▄
+echo. ▀   ▀▀   ▀ ▀   ▀   ▀     ▀   ▀   ▀▀▀▀ ▀   ▀      ▀   ▀▀   ▀ ▀   ▀    ▀   ▀▀   ▀ ▀   ▀▀   ▀ ▀   ▀▀▀▀ ▀▀▀▀   ▀▀▀▀
+echo. █   ▄▄▄▄██ █   █    █   █    █   ▀█   █   █      █   ▄▄▄▄██ █   █    █   ▄▄   █ █   ██   █ █   ▀█      █   █
+echo. ▄   ▄      ▄   ▄   ▄     ▄   ▄   ▄▄▄▄ ▄   ▄▄▄▄   ▄   ▄      ▄   ▄▄▄▄ ▄   ▄▄   ▄ ▄   ▄▄   ▄ ▄   ▄▄▄▄    ▄   ▄
+echo. ▀   ▀      ▀   ▀  ▀   ▀   ▀  ▀      ▀ ▀      ▀   ▀   ▀      ▀      ▀ ▀   ▀▀   ▀ ▀   ▀▀   ▀ ▀      ▀    ▀   ▀
+echo. █▄▄▄█      █▄▄▄█ █▄▄▄███▄▄▄█ █▄▄▄▄▄▄█ █▄▄▄▄▄▄█   █▄▄▄█      █▄▄▄▄▄▄█ █▄▄▄██▄▄▄█ █▄▄▄██▄▄▄█ █▄▄▄▄▄▄█    █▄▄▄█
+echo.
+echo.        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+echo.
+echo.                               █▀▀▀▀▀▀█   ██▀▀▀▀██   █▀▀▀▀▀██   ██▀▀▀▀██  █▀▀██▀▀█
+echo.                               ▄▄▄  ▄▄▄   ▄  ▄▄  ▄   ▄  ▄▄  ▄   ▄  ▄▄  ▄   ▄    ▄
+echo.                                 ▀  ▀     ▀  ▀▀  ▀   ▀  ▀▀  ▀   ▀      ▀    ▀  ▀
+echo.                                 █  █     █  ██  █   █  ██  █   █  ██  █    █  █
+echo.                                 ▄  ▄     ▄▄    ▄▄   ▄     ▄▄   ▄  ▄▄  ▄    ▄  ▄
+echo.                                 ▀▀▀▀     ▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀    ▀▀▀▀
+echo.
+echo.
+
+:mainMenu
+echo.                                     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+echo.                                    █                                      █
+echo.                                    █ Choose from the following actions to █
+echo.                                    █ create a new social media post:      █
+echo.                                    █ ==================================== █
+echo.                                    █                                      █
+echo.                                    █ 1: Open Pixel Planet Today webpages  █
+echo.                                    █ 2: Open Terrabyte pages              █
+echo.                                    █ 3: Open Explorer ("days" folder)     █
+echo.                                    █ 4: EXIT                              █
+echo.                                    █                                      █
+echo.                                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+echo.
+
+set /p menuInput=:
 if %menuInput%==1 goto openPixelPages
 if %menuInput%==2 goto openTbPages
 if %menuInput%==3 goto openExplorer
@@ -37,7 +66,7 @@ echo opening We Don't Have Time
 start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
 echo opening Google Drive (Carbonii)
 
-start %~dp0%new-post_open.bat
+start %~dp0%new-post.bat
 exit
 
 
@@ -51,7 +80,7 @@ echo opening Twitter
 start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
 
-start %~dp0%new-post_open.bat
+start %~dp0%new-post.bat
 exit
 
 
@@ -62,7 +91,7 @@ set /p pptfilepath=<%~dp0%file-paths\ppt-days.txt
 echo opening in File Explorer...
 %SystemRoot%\explorer.exe %pptfilepath%
 
-start %~dp0%new-post_open.bat
+start %~dp0%new-post.bat
 exit
 
 :noFolder
