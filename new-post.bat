@@ -31,8 +31,7 @@ echo.
 :mainMenu
 echo.                                     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 echo.                                    █                                      █
-echo.                                    █ Choose from the following actions to █
-echo.                                    █ create a new social media post:      █
+echo.                                    █ Choose from the following actions:   █
 echo.                                    █ ==================================== █
 echo.                                    █                                      █
 echo.                                    █ 1: Open Pixel Planet Today webpages  █
