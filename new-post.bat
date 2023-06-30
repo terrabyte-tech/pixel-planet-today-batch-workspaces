@@ -37,17 +37,35 @@ echo.                                    █                                    
 echo.                                    █ 1: Open Pixel Planet Today webpages  █
 echo.                                    █ 2: Open Terrabyte pages              █
 echo.                                    █ 3: Open Explorer ("days" folder)     █
-echo.                                    █ 4: EXIT                              █
+echo.                                    █ A: Open All                          █
+echo.                                    █ X or C: EXIT                         █
 echo.                                    █                                      █
 echo.                                     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
 echo.
 
 set /p menuInput=:
-if %menuInput%==1 goto openPixelPages
-if %menuInput%==2 goto openTbPages
-if %menuInput%==3 goto openExplorer
-if %menuInput%==4 goto exit
+if %menuInput%==A goto allOptions
+if %menuInput%==a goto allOptions
+if %menuInput%==1 goto openPixelPagesOnly
+if %menuInput%==2 goto openTbPagesOnly
+if %menuInput%==3 goto openExplorerOnly
+if %menuInput%==X goto exit
+if %menuInput%==x goto exit
+if %menuInput%==C goto exit
+if %menuInput%==c goto exit
+goto badEntry
 
+
+:allOptions
+call :openPixelPages x
+call :openTbPages x
+call :openExplorer x
+goto exit
+
+
+:openPixelPagesOnly
+call :openPixelPages x
+goto newInstance
 
 :openPixelPages
 @REM Pixel Planet Today Pages
@@ -64,10 +82,12 @@ start "We Don't Have Time" "https://app.wedonthavetime.org/"
 echo opening We Don't Have Time
 start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
 echo opening Google Drive (Carbonii)
+goto:eof
 
-start %~dp0%new-post.bat
-exit
 
+:openTbPagesOnly
+call :openTbPages x
+goto newInstance
 
 :openTbPages
 @REM Terrabyte Pages
@@ -78,10 +98,12 @@ start "Twitter" "https://www.twitter.com/TerrabyteEco"
 echo opening Twitter
 start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
+goto:eof
 
-start %~dp0%new-post.bat
-exit
 
+:openExplorerOnly
+call :openExplorer x
+goto newInstance
 
 :openExplorer
 if not exist "%~dp0%file-paths\ppt-days.txt" goto noFolder
@@ -89,16 +111,25 @@ set /p pptfilepath=<%~dp0%file-paths\ppt-days.txt
 
 echo opening in File Explorer...
 %SystemRoot%\explorer.exe %pptfilepath%
+goto:eof
 
-start %~dp0%new-post.bat
-exit
 
 :noFolder
 echo unable to open File Explorer; folder not found
 goto mainMenu
 
 
+:badEntry
+echo unknown character entry; returning to main menu
+goto mainMenu
+
+
 :exit
 echo closing batch
-timeout /t 1 /nobreak
 exit
+
+
+:newInstance
+start %~dp0%new-post.bat
+exit
+
