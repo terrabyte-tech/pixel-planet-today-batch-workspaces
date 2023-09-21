@@ -7,6 +7,10 @@ Batch files and what they do:
 - `new-post.bat` opens websites used to post on social media about a new Pixel Planet Today post
 - `new-blog-post.bat` opens websites used to post on the Pixel Planet Today blog
 
+**Note**: Workflows started within the batch file are meant for administrative purposes. However, others may find the repo useful for creating their own micro-optimization batch files. 
+
+<br>
+
 ## Setup
 
 To use the `new-post.bat` file, you must first tell your machine the location of the Pixel Planet Today 'days' folder. Follow the steps below to create this connection with a simple text file.
