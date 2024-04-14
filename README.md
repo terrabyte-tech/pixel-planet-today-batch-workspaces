@@ -15,7 +15,7 @@ Batch files and what they do:
 
 To use the `new-post.bat` file, you must first tell your machine the location of the Pixel Planet Today 'days' folder. Follow the steps below to create this connection with a simple text file.
 
-1. After cloning the repo to your machine, create a folder in the root called `file-paths`. The repo folder structure should look something like:
+1. After cloning the repo to your machine, locate the folder in root called `file-paths`. The repo folder structure should look something like:
 ```
 -file-paths
   |- //text files that act as variables
@@ -23,7 +23,7 @@ To use the `new-post.bat` file, you must first tell your machine the location of
 README.md
 [.bat files]
 ```
-2. Inside the new folder, create a `.txt` file that includes the file path to the Pixel Planet Today 'days' folder. Example:
+2. Inside the folder, create a `.txt` file that includes the file path to the Pixel Planet Today 'days' folder. Example:
 ```
 C:\Users\username\path\to\folder\days
 ```
@@ -32,4 +32,8 @@ C:\Users\username\path\to\folder\days
 C:\Users\username\path\to\folder\days\year04-22-to-23
 ```
 
+Name this file `secret_ppt-days_folder.txt`. This will be automatically ignored in git commits to keep your local paths only on your machine.
+
 **Note:** These configurations align with a general Windows setup. You may have to make adjustments depending on your OS and folder structure.
+
+**Note** You will also need to configure text files for Meta Creator Studio links and any other links. These text files can be configured using these same steps.
