@@ -1,9 +1,6 @@
 @ECHO OFF
 chcp 65001
 
-@REM Profile 1 is Pixel; Profile 3 is Terrabyte
-@REM ____________________________________________________________
-
 cls
 :ascii
 @REM █ ▄ ▀
@@ -72,16 +69,24 @@ goto newInstance
 start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --profile-directory="Profile 1"
 echo starting Edge in Profile 1 (Pixel Planet Today)...
 
-start "Meta Creator Studio" "https://business.facebook.com/latest/content_calendar?asset_id=106945221034132&nav_ref=page_composer_interruption&business_id=426922484643463"
 echo opening Meta Creator Studio
-start "Instagram" "https://www.instagram.com/pixelplanettoday/"
+if not exist "%~dp0%file-paths\secret_meta-studio_url.txt" goto badEntry
+set /p metaurl=<%~dp0%file-paths\secret_meta-studio_url.txt
+start "Meta Creator Studio" %metaurl%
+
 echo opening Instagram
-start "Facebook" "https://www.facebook.com/pixelplanettoday/?ref=pages_you_manage"
+start "Instagram" "https://www.instagram.com/pixelplanettoday/"
+
 echo opening Facebook
-start "We Don't Have Time" "https://app.wedonthavetime.org/"
+start "Facebook" "https://www.facebook.com/pixelplanettoday/?ref=pages_you_manage"
+
 echo opening We Don't Have Time
-start "Google Drive > Carbonii" "https://drive.google.com/drive/folders/13WihWMy9Rm658CKBLY3l1qfo_Ck3-7Ds"
+start "We Don't Have Time" "https://app.wedonthavetime.org/"
+
 echo opening Google Drive (Carbonii)
+if not exist "%~dp0%file-paths\secret_carbonii_url.txt" goto badEntry
+set /p carboniiurl=<%~dp0%file-paths\secret_carbonii_url.txt
+start "Google Drive > Carbonii" %carboniiurl%
 goto:eof
 
 
@@ -94,8 +99,6 @@ goto newInstance
 start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --profile-directory="Profile 3"
 echo starting Edge in Profile 3 (Terrabyte)...
 
-start "Twitter" "https://www.twitter.com/TerrabyteEco"
-echo opening Twitter
 start "Mastodon" "https://mastodon.eco"
 echo opening Mastodon
 goto:eof
@@ -106,8 +109,8 @@ call :openExplorer x
 goto newInstance
 
 :openExplorer
-if not exist "%~dp0%file-paths\ppt-days.txt" goto noFolder
-set /p pptfilepath=<%~dp0%file-paths\ppt-days.txt
+if not exist "%~dp0%file-paths\secret_ppt-days_folder.txt" goto noFolder
+set /p pptfilepath=<%~dp0%file-paths\secret_ppt-days_folder.txt
 
 echo opening in File Explorer...
 %SystemRoot%\explorer.exe %pptfilepath%
