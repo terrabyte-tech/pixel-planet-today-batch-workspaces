@@ -1,6 +1,6 @@
 # Open Workspaces via Batch file!
 
-Easily open a series of webpages that are needed for various Pixel Planet Today workflows.
+Easily open a series of webpages and other applications that are needed for various Pixel Planet Today workflows.
 
 Batch files and what they do:
 
@@ -13,27 +13,27 @@ Batch files and what they do:
 
 ## Setup
 
-To use the `new-post.bat` file, you must first tell your machine the location of the Pixel Planet Today 'days' folder. Follow the steps below to create this connection with a simple text file.
-
-1. After cloning the repo to your machine, locate the folder in root called `file-paths`. The repo folder structure should look something like:
+In order to use these batch files as intended, you will need to make a series of `.txt` files that include resource locations. This is used to keep personal data only on your computer (and not your repo). These reference files will be located inside `/file-paths`. The repo folder structure should look something like:
 ```
 -file-paths
-  |- //text files that act as variables
+  |- //text files that acting as private variables
 .gitignore
 README.md
 [.bat files]
 ```
-2. Inside the folder, create a `.txt` file that includes the file path to the Pixel Planet Today 'days' folder. Example:
+
+Inside this folder, you will need to create files for the path for Pixel Planet Today post graphics, URL for Meta Creator Studio, and Carbonii uploads (unless you are repurposing this repo for your own personal use case, then these should be whatever you like).
+
+Each file should be prepended with `secret` to automatically be ignored by git and should only contain the secret variable. For example, the `secret_ppt-days_folder.txt` file should look something like:
+
 ```
 C:\Users\username\path\to\folder\days
 ```
-3. For quicker navigation, you can append this file path with the current year (such as `\year04-22-to-23`):
-```
-C:\Users\username\path\to\folder\days\year04-22-to-23
-```
 
-Name this file `secret_ppt-days_folder.txt`. This will be automatically ignored in git commits to keep your local paths only on your machine.
+Another example, would be a `secret_meta-studio_url.txt` file that includes the path to your dashboard:
+
+```
+https://business.facebook.com/latest/content_calendar?asset_id=010101010101&nav_ref=page_composer_interruption&business_id=010101010101
+```
 
 **Note:** These configurations align with a general Windows setup. You may have to make adjustments depending on your OS and folder structure.
-
-**Note** You will also need to configure text files for Meta Creator Studio links and any other links. These text files can be configured using these same steps.
